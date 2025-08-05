@@ -1,46 +1,171 @@
-# Getting Started with Create React App
+# Reverso – Minimalist Fashion E-Commerce Web Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) TS template.
+Reverso is a modern and minimalistic fashion e-commerce web application built using React and TypeScript. It supports full shopping functionality, including user authentication, browsing products, managing a shopping cart, and placing orders using Stripe for secure payments.
 
-## Available Scripts
+The project uses Redux Toolkit and React Context API for global state management, and Material UI for styling and responsiveness. The architecture is modular and scalable for future development.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## Preview
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+![photo_2025-08-05 23 03 51](https://github.com/user-attachments/assets/127062f6-6182-47d7-8727-a82590f1275c)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Project Overview
 
-### `npm run build`
+**Main Features:**
+- User registration, login, logout
+- JWT-based authentication with session persistence
+- Product listing and detailed product pages
+- Add-to-cart and checkout functionality
+- Stripe payment integration (test key used)
+- Responsive design using Material UI
+- Contact and About pages
+- Not Found (404) page
+- React Router for navigation
+- Context + Redux integration for state management
+- Pre-configured for unit testing with React Testing Library
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Tech Stack
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- React 18
+- TypeScript
+- Redux Toolkit
+- React Router DOM
+- Material UI & Emotion
+- Stripe (Test Environment)
+- Axios
+- EmailJS
+- React Testing Library
+- Universal Cookie
+- Create React App
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Getting Started
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+These instructions will help you set up and run the project locally.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### 1. Clone the repository
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```bash
+git clone https://github.com/your-username/reverso-react.git
+cd reverso-react
+```
 
-## Learn More
+### 2. Install dependencies
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+npm install
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### 3. Start the development server
+
+```bash
+npm start
+```
+
+This will launch the app at `http://localhost:3000/`.
+
+### 4. Run tests (optional)
+
+```bash
+npm test
+```
+
+---
+
+## Running the App
+
+- The app is built with Create React App and uses `npm start` to serve the frontend.
+- All product logic is currently frontend-based. You can plug in your backend or API in the `services` folder.
+- Session management uses cookies and localStorage.
+- Stripe is integrated using a test public key. You can replace it with your own in `App.tsx`.
+
+---
+
+## Project Structure
+
+```
+public/
+├── icons/
+├── img/
+├── video/
+│   ├── hero-videos.mp4
+│   ├── maniken.mp4
+│   └── video-qoravoy.mp4
+├── index.html
+├── manifest.json
+└── robots.txt
+
+src/
+├── app/
+│   ├── components/        # Reusable UI elements (navbar, footer, etc.)
+│   ├── context/           # Global context provider
+├── css/                   # Global CSS styles
+├── hooks/                 # Custom React hooks
+├── libs/                  # Type definitions and utility types
+├── MaterialTheme/         # Theme configuration for Material UI
+├── pages/                 # Route-specific components
+├── screens/               # High-level page structures and routes
+├── service/               # API and logic services (e.g. Stripe, MemberService)
+├── index.tsx              # Entry point
+├── App.tsx                # Root application component
+├── reportWebVitals.ts
+├── setupTests.ts
+├── react-app-env.d.ts
+
+.env
+.gitignore
+package.json
+tsconfig.json
+yarn.lock
+README.md
+```
+
+---
+
+## Configuration Notes
+
+- Stripe public test key is hardcoded in `App.tsx`:
+  ```ts
+  const stripePromise = loadStripe("pk_test_...");
+  ```
+  Replace with your own Stripe key if needed.
+
+- Project uses strict TypeScript settings (`strict: true` in `tsconfig.json`).
+
+- Path aliases are configured in `tsconfig.json` for cleaner imports:
+  ```json
+  "@components/*": ["src/components/*"]
+  ```
+
+- No backend is included — you can integrate one or connect to a headless CMS or Firebase as needed.
+
+---
+
+## What's Implemented
+
+- Core e-commerce functionality
+- Stripe test payment flow
+- Static routing and authentication
+- UI theming and layout
+
+## What Can Be Improved or Added
+
+- Backend integration (e.g., product database, order management)
+- Admin panel for product management
+- Product search and filters
+- Order history and user profile pages
+- Error boundaries and loading states
+- Full internationalization (i18n)
+
+---
+
+## License
+
+This project is released under the MIT License.
