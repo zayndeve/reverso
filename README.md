@@ -157,11 +157,6 @@ README.md
 
 ## What Can Be Improved or Added
 
-- Backend integration (e.g., product database, order management)
-- Admin panel for product management
-- Product search and filters
-- Order history and user profile pages
-- Error boundaries and loading states
 - Full internationalization (i18n)
 
 ---
